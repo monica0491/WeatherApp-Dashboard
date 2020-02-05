@@ -3,7 +3,7 @@ var currentLoc;
 
 function initialize() {
     //grab previous locations from local storage
-    savedLocations = JSON.parse(localStorage.getItem("city-search"));
+    savedLocations = JSON.parse(localStorage.getItem("#search-city"));
     var lastSearch;
     //display buttons for previous searches
     if (savedLocations) {
@@ -197,15 +197,16 @@ $("#search-input").on("click", function () {
     //don't refresh the screen
     event.preventDefault();
     //grab the value of the input field
-    var loc = $("#search-input").val().trim();
+    var loc = $("#city-search").val().trim();
     //if loc wasn't emptyd"D
+    debugger;
     if (loc !== "") {
         //clear the previous forecast
         clear();
         currentLoc = loc;
         saveLoc(loc);
         //clear the search field value
-        $("#search-input").val("");
+        $("#city-search").val("");
         //get the new forecast
         getCurrent(loc);
     }
